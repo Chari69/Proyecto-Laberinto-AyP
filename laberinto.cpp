@@ -158,6 +158,7 @@ int main()
     player_pos_x=1;//luego vamos a cambiarlo por la coordenada x de la ENTRADA
     player_pos_y=1;//luego vamos a cambiarlo por la coordenada y de la ENTRADA
     string direction;
+    bool juego_terminado = false;
 
     while(!juego_terminado)
     {
