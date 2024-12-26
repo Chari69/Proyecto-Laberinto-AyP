@@ -4,16 +4,6 @@
 
 using namespace std;
 
-// FUNCION INTERNA: Esto debe ser borrado. Solo es para pruebas.
-// SI LO DEJAMOS SACAMOS 01.
-#include <thread> 
-#include <chrono> 
-// Espera x segundos antes de continuar la ejecucion.
-void sleep(int tiempo) {
-    std::this_thread::sleep_for(std::chrono::seconds(tiempo)); 
-}
-//  LO DE ARRIBA DEBE SER BORRADO ANTES DE ENTREGAR EL PROYECTO
-
 int vidaInicial;            // Viva del jugador
 int vida;                   // Vida actual del jugador
 int limEjeX, limEjeY;       // Limites de las dimensiones del laberinto
@@ -61,11 +51,5 @@ void restarVida(int vidaRestada) {
 int main() 
 {
     inicializar();
-    restarVida(50);
-    sumarVida(52);
-    cout << "Vida:" << vida << endl;
-    restarVida(99);
-    restarVida(1);
-    restarVida(12);
     return 0;
 }
