@@ -228,12 +228,101 @@ void comprobarTrampa(int posX, int posY) {
     }
 }
 
+bool comprobarMuro(int posX, int posY)
+{
+    for(int i = 1; i <= cantMuros; i++) {
+        switch (i) 
+        {
+            case 1: 
+                if(posX == muro1_x && posY == muro1_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 2:
+                if(posX == muro2_x && posY == muro2_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 3:
+                if(posX == muro3_x && posY == muro3_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 4:
+                if(posX == muro4_x && posY == muro4_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 5:
+                if(posX == muro5_x && posY == muro5_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 6:
+                if(posX == muro6_x && posY == muro6_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 7:
+                if(posX == muro7_x && posY == muro7_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 8:
+                if(posX == muro8_x && posY == muro8_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 9:
+                if(posX == muro9_x && posY == muro9_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+            case 10:
+                if(posX == muro10_x && posY == muro10_y) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                break;
+        }
+    }
+}
+
 int main() 
 {
     inicializar();
     int player_pos_x = entrada_x, player_pos_y = entrada_y;
-    //player_pos_x=1;//luego vamos a cambiarlo por la coordenada x de la ENTRADA
-    //player_pos_y=1;//luego vamos a cambiarlo por la coordenada y de la ENTRADA
+    int x_deseada, y_deseada;
+    
     char direction;
     bool juego_terminado = false;
 
@@ -246,30 +335,50 @@ int main()
 
         if(direction=='w'&&player_pos_y<limEjeY)
         {
-            player_pos_y++;
-            comprobarTrampa(player_pos_x, player_pos_y);
+            y_deseada= player_pos_y+1;
+            if(!comprobarMuro(player_pos_x, y_deseada)){
+                player_pos_y++;
+            }
+            else{
+                cout<<"Movimiento bloqueado"<<endl;
+            }
         }
         else if(direction=='s'&&player_pos_y>0)
         {
-            player_pos_y--;
-            comprobarTrampa(player_pos_x, player_pos_y);
+            y_deseada= player_pos_y-1;
+            if(!comprobarMuro(player_pos_x, y_deseada)){
+                player_pos_y--;
+            }
+            else{
+                cout<<"Movimiento bloqueado"<<endl;
+            }
         }
         else if(direction=='d'&&player_pos_x<limEjeX)
         {
-            player_pos_x++;
-            comprobarTrampa(player_pos_x, player_pos_y);
+            x_deseada= player_pos_x+1;
+            if(!comprobarMuro(x_deseada, player_pos_y)){
+                player_pos_x++;
+            }
+            else{
+                cout<<"Movimiento bloqueado"<<endl;
+            }
         }
         else if(direction=='a'&&player_pos_x>0)
         {
-            player_pos_x--;
-            comprobarTrampa(player_pos_x, player_pos_y);
+            x_deseada= player_pos_x-1;
+            if(!comprobarMuro(x_deseada, player_pos_y)){
+                player_pos_x--;
+            }
+            else{
+                cout<<"Movimiento bloqueado"<<endl;
+            }
         }
         else{
             cout<<"Movimiento bloqueado"<<endl;
         }
         
         //ACCIONES EN CASILLAS
-        
+        comprobarTrampa(player_pos_x, player_pos_y);
         //
 
         cout<<player_pos_x<<" "<<player_pos_y<<endl; //linea provisional
