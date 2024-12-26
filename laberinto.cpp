@@ -4,8 +4,7 @@
 
 using namespace std;
 
-int vidaInicial;            // Viva del jugador
-int vida;                   // Vida actual del jugador
+int vidaInicial, vida;            // Viva del jugador                  // Vida actual del jugador
 int limEjeX, limEjeY;       // Limites de las dimensiones del laberinto
 int cantElem;               // Cantidad de elementos (para ver cuantos cin se deben hacer)
 int cantMov;                // Cantidad de movimientos
