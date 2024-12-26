@@ -50,7 +50,7 @@ void inicializar() {
                         case 9: portal9_x = posX; portal9_y = posY; break;
                         case 10: portal10_x = posX; portal10_y = posY; break;
                     }
-                    cout << "Portal en (" << posX << ", " << posY << ")" << endl;
+                    cout << "Portal en (" << posX << ", " << posY << ")" << endl; // Q
                 }
                 break;
             case 'X':
@@ -68,7 +68,7 @@ void inicializar() {
                         case 9: trampa9_x = posX; trampa9_y = posY; break;
                         case 10: trampa10_x = posX; trampa10_y = posY; break;
                     }
-                    cout << "Trampa en (" << posX << ", " << posY << ")" << endl;
+                    cout << "Trampa en (" << posX << ", " << posY << ")" << endl; // Q
                 } 
                 break;
             case '#':
@@ -86,7 +86,7 @@ void inicializar() {
                         case 9: muro9_x = posX; muro9_y = posY; break;
                         case 10: muro10_x = posX; muro10_y = posY; break;
                     }
-                    cout << "Muro en (" << posX << ", " << posY << ")" << endl;
+                    cout << "Muro en (" << posX << ", " << posY << ")" << endl; // Q
                 } 
                 break;
             case 'T':
@@ -104,36 +104,36 @@ void inicializar() {
                         case 9: tesoro9_x = posX; tesoro9_y = posY; break;
                         case 10: tesoro10_x = posX; tesoro10_y = posY; break;
                     }
-                    cout << "Tesoro en (" << posX << ", " << posY << ")" << endl;
+                    cout << "Tesoro en (" << posX << ", " << posY << ")" << endl; // Q
                 } 
                 break;
             case 'E':
                 if (cantEntradas < 1) {
                     cantEntradas++;
                     entrada_x = posX; entrada_y = posY;
-                    cout << "Entrada en (" << posX << ", " << posY << ")" << endl;
+                    cout << "Entrada en (" << posX << ", " << posY << ")" << endl; // Q
                 } else {
-                    cout << "Solo puede haber una entrada" << endl;
+                    cout << "Solo puede haber una entrada" << endl; // Q
                 }
                 break;
             case 'S':
                 if (cantSalidas < 1) {
                     cantSalidas++;
                     salida_x = posX; salida_y = posY;
-                    cout << "Salida en (" << posX << ", " << posY << ")" << endl;
+                    cout << "Salida en (" << posX << ", " << posY << ")" << endl; // Q
                 } else {
-                    cout << "Solo puede haber una salida" << endl;
+                    cout << "Solo puede haber una salida" << endl; // Q
                 }
                 break;
             default:
-                cout << "Tipo de elemento desconocido: " << tipo << endl;
+                cout << "Tipo de elemento desconocido: " << tipo << endl; // Q
                 break;
         }
         
     }
 
     cin >> cantMov;
-    cout << "Movimientos a Ingresar: " << cantMov << endl;
+    cout << "Movimientos a Ingresar: " << cantMov << endl; // Q
 }
 
 // Funcion que suma vida al jugador, sin pasar de la vida inicial.
@@ -151,37 +151,118 @@ void restarVida(int vidaRestada) {
     vida= vida - vidaRestada;
 }
 
+void comprobarTrampa(int posX, int posY) {
+    for(int i = 1; i <= cantTrampas; i++) {
+        switch (i) {
+            case 1: 
+                if(posX == trampa1_x && posY == trampa1_y) {
+                    trampa1_x = 999;
+                    trampa1_y = 999;
+                    restarVida(10);
+                } 
+                break;
+            case 2:
+                if(posX == trampa2_x && posY == trampa2_y) {
+                    trampa2_x = 999;
+                    trampa2_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 3:
+                if(posX == trampa3_x && posY == trampa3_y) {
+                    trampa3_x = 999;
+                    trampa3_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 4:
+                if(posX == trampa4_x && posY == trampa4_y) {
+                    trampa4_x = 999;
+                    trampa4_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 5:
+                if(posX == trampa5_x && posY == trampa5_y) {
+                    trampa5_x = 999;
+                    trampa5_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 6:
+                if(posX == trampa6_x && posY == trampa6_y) {
+                    trampa6_x = 999;
+                    trampa6_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 7:
+                if(posX == trampa7_x && posY == trampa7_y) {
+                    trampa7_x = 999;
+                    trampa7_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 8:
+                if(posX == trampa8_x && posY == trampa8_y) {
+                    trampa8_x = 999;
+                    trampa8_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 9:
+                if(posX == trampa9_x && posY == trampa9_y) {
+                    trampa9_x = 999;
+                    trampa9_y = 999;
+                    restarVida(10);
+                }
+                break;
+            case 10:
+                if(posX == trampa10_x && posY == trampa10_y) {
+                    trampa10_x = 999;
+                    trampa10_y = 999;
+                    restarVida(10);
+                }
+                break;
+        }
+    }
+}
+
 int main() 
 {
     inicializar();
-    int player_pos_x, player_pos_y;
-    player_pos_x=1;//luego vamos a cambiarlo por la coordenada x de la ENTRADA
-    player_pos_y=1;//luego vamos a cambiarlo por la coordenada y de la ENTRADA
-    string direction;
+    int player_pos_x = entrada_x, player_pos_y = entrada_y;
+    //player_pos_x=1;//luego vamos a cambiarlo por la coordenada x de la ENTRADA
+    //player_pos_y=1;//luego vamos a cambiarlo por la coordenada y de la ENTRADA
+    char direction;
     bool juego_terminado = false;
 
     while(!juego_terminado)
     {
-        cout << "Ingresa un movimiento: ";
+        cout << "Ingresa un movimiento: "; // Q
         cin >> direction;
 
         // MOVIMIENTO
 
-        if(direction=="w"&&player_pos_y<limEjeY)
+        if(direction=='w'&&player_pos_y<limEjeY)
         {
             player_pos_y++;
+            comprobarTrampa(player_pos_x, player_pos_y);
         }
-        else if(direction=="s"&&player_pos_y>0)
+        else if(direction=='s'&&player_pos_y>0)
         {
             player_pos_y--;
+            comprobarTrampa(player_pos_x, player_pos_y);
         }
-        else if(direction=="d"&&player_pos_x<limEjeX)
+        else if(direction=='d'&&player_pos_x<limEjeX)
         {
             player_pos_x++;
+            comprobarTrampa(player_pos_x, player_pos_y);
         }
-        else if(direction=="a"&&player_pos_x>0)
+        else if(direction=='a'&&player_pos_x>0)
         {
             player_pos_x--;
+            comprobarTrampa(player_pos_x, player_pos_y);
         }
         else{
             cout<<"Movimiento bloqueado"<<endl;
@@ -191,7 +272,8 @@ int main()
         
         //
 
-        cout<<player_pos_x<<" "<<player_pos_y; //linea provisional
+        cout<<player_pos_x<<" "<<player_pos_y<<endl; //linea provisional
+        cout<<"Vida actual: " << vida <<endl;
         if (vida==0)
         {   
             juego_terminado=true;
