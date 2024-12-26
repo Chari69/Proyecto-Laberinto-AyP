@@ -33,22 +33,56 @@ void sumarVida(int vidaAnadida) {
 }
 
 void restarVida(int vidaRestada) {
-    int chequeoVida = vida - vidaRestada;
-    if (chequeoVida <= 0) {
-        vida = 0;
-        cout << "Has muerto" << endl;
-        cout << "Vida:" << vida << endl;
-        // HAS MUERTO
-        // aca deberia finalizar el programa y mostrar estadisticas, deberia hacerse una funcion para ello.
-    }
-    else {
-        vida = chequeoVida;
-        cout << "Vida:" << vida << endl;
-    }
+    vida= vida - vidaRestada;
 }
 
 int main() 
 {
     inicializar();
+    int player_pos_x, player_pos_y;
+    player_pos_x=1;//luego vamos a cambiarlo por la coordenada x de la ENTRADA
+    player_pos_y=1;//luego vamos a cambiarlo por la coordenada y de la ENTRADA
+    string direction;
+
+    while(!juego_terminado)
+    {
+        cout << "Ingresa un movimiento: ";
+        cin >> direction;
+
+        // MOVIMIENTO
+
+        if(direction=="w"&&player_pos_y<limEjeY)
+        {
+            player_pos_y++;
+        }
+        else if(direction=="s"&&player_pos_y>0)
+        {
+            player_pos_y--;
+        }
+        else if(direction=="d"&&player_pos_x<limEjeX)
+        {
+            player_pos_x++;
+        }
+        else if(direction=="a"&&player_pos_x>0)
+        {
+            player_pos_x--;
+        }
+        else{
+            cout<<"Movimiento bloqueado"<<endl;
+        }
+        
+        //ACCIONES EN CASILLAS
+        
+        //
+
+        cout<<player_pos_x<<" "<<player_pos_y; //linea provisional
+        if (vida==0)
+        {   
+            juego_terminado=true;
+        }
+    }
+
+    cout<<"MUERTO";
+
     return 0;
 }
