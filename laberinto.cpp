@@ -161,6 +161,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa1_x = 999;
                     trampa1_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 } 
                 break;
             case 2:
@@ -168,6 +169,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa2_x = 999;
                     trampa2_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 3:
@@ -175,6 +177,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa3_x = 999;
                     trampa3_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 4:
@@ -182,6 +185,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa4_x = 999;
                     trampa4_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 5:
@@ -189,6 +193,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa5_x = 999;
                     trampa5_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 6:
@@ -196,6 +201,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa6_x = 999;
                     trampa6_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 7:
@@ -203,6 +209,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa7_x = 999;
                     trampa7_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 8:
@@ -210,6 +217,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa8_x = 999;
                     trampa8_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 9:
@@ -217,6 +225,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa9_x = 999;
                     trampa9_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
             case 10:
@@ -224,6 +233,7 @@ void comprobarTrampa(int posX, int posY) {
                     trampa10_x = 999;
                     trampa10_y = 999;
                     restarVida(10);
+                    cantTrampas_activadas++;
                 }
                 break;
         }
