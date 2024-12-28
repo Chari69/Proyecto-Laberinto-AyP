@@ -22,6 +22,8 @@ int entrada_x, entrada_y, salida_x, salida_y;
 
 int cantPortales, cantTrampas, cantMuros, cantTesoros, cantEntradas, cantSalidas;
 
+int cantTrampas_activadas = 0, cantTesoros_activados = 0;
+
 // Funcion que inicializa el juego, pidiendo todas las entradas correspondientes al usuario.
 // Asigna las cantidades a las variables globales y se encarga que lo haga de forma correcta.
 void inicializar() {
@@ -228,6 +230,93 @@ void comprobarTrampa(int posX, int posY) {
     }
 }
 
+void comprobarTesoro(int posX, int posY) {
+    for(int i = 1; i <= cantTesoros; i++) {
+        switch (i) {
+            case 1: 
+                if(posX == tesoro1_x && posY == tesoro1_y) {
+                    tesoro1_x = 999;
+                    tesoro1_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                } 
+                break;
+            case 2:
+                if(posX == tesoro2_x && posY == tesoro2_y) {
+                    tesoro2_x = 999;
+                    tesoro2_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 3:
+                if(posX == tesoro3_x && posY == tesoro3_y) {
+                    tesoro3_x = 999;
+                    tesoro3_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 4:
+                if(posX == tesoro4_x && posY == tesoro4_y) {
+                    tesoro4_x = 999;
+                    tesoro4_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 5:
+                if(posX == tesoro5_x && posY == tesoro5_y) {
+                    tesoro5_x = 999;
+                    tesoro5_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 6:
+                if(posX == tesoro6_x && posY == tesoro6_y) {
+                    tesoro6_x = 999;
+                    tesoro6_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 7:
+                if(posX == tesoro7_x && posY == tesoro7_y) {
+                    tesoro7_x = 999;
+                    tesoro7_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 8:
+                if(posX == tesoro8_x && posY == tesoro8_y) {
+                    tesoro8_x = 999;
+                    tesoro8_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 9:
+                if(posX == tesoro9_x && posY == tesoro9_y) {
+                    tesoro9_x = 999;
+                    tesoro9_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+            case 10:
+                if(posX == tesoro10_x && posY == tesoro10_y) {
+                    tesoro10_x = 999;
+                    tesoro10_y = 999;
+                    sumarVida(20);
+                    cantTesoros_activados++;
+                }
+                break;
+        }
+    }
+}
+
 bool comprobarMuro(int posX, int posY)
 {
     for(int i = 1; i <= cantMuros; i++) {
@@ -379,6 +468,7 @@ int main()
         
         //ACCIONES EN CASILLAS
         comprobarTrampa(player_pos_x, player_pos_y);
+        comprobarTesoro(player_pos_x, player_pos_y);
         //
 
         cout<<player_pos_x<<" "<<player_pos_y<<endl; //linea provisional
