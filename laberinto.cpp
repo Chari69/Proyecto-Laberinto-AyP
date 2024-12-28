@@ -327,6 +327,93 @@ void comprobarTesoro(int posX, int posY) {
     }
 }
 
+int comprobarPortales(int posX, int posY) {
+    for(int i = 1; i <= cantPortales; i++) {
+        switch (i) {
+            case 1: 
+                if(posX == portal1_x && posY == portal1_y) {
+                    return portal2_x*10+portal2_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 2:
+                if(posX == portal2_x && posY == portal2_y) {
+                    return portal1_x*10+portal1_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 3:
+                if(posX == portal3_x && posY == portal3_y) {
+                    return portal4_x*10+portal4_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 4:
+                if(posX == portal4_x && posY == portal4_y) {
+                    return portal3_x*10+portal3_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 5:
+                if(posX == portal5_x && posY == portal5_y) {
+                    return portal6_x*10+portal6_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 6:
+                if(posX == portal6_x && posY == portal6_y) {
+                    return portal5_x*10+portal5_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 7:
+                if(posX == portal7_x && posY == portal7_y) {
+                    return portal8_x*10+portal8_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 8:
+                if(posX == portal8_x && posY == portal8_y) {
+                    return portal7_x*10+portal7_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 9:
+                if(posX == portal9_x && posY == portal9_y) {
+                    return portal10_x*10+portal10_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+            case 10:
+                if(posX == portal10_x && posY == portal10_y) {
+                    return portal9_x*10+portal9_y;
+                }
+                else{
+                    return posX*10+posY;
+                }
+                break;
+        }
+    }
+}
+
 bool comprobarMuro(int posX, int posY)
 {
     for(int i = 1; i <= cantMuros; i++) {
@@ -441,6 +528,7 @@ int main()
             else{
                 cout<<"Movimiento bloqueado"<<endl;
             }
+            cantMov--;
         }
         else if(direction=='s'&&player_pos_y>0)
         {
@@ -451,6 +539,7 @@ int main()
             else{
                 cout<<"Movimiento bloqueado"<<endl;
             }
+            cantMov--;
         }
         else if(direction=='d'&&player_pos_x<limEjeX)
         {
@@ -461,6 +550,7 @@ int main()
             else{
                 cout<<"Movimiento bloqueado"<<endl;
             }
+            cantMov--;
         }
         else if(direction=='a'&&player_pos_x>0)
         {
@@ -471,6 +561,7 @@ int main()
             else{
                 cout<<"Movimiento bloqueado"<<endl;
             }
+            cantMov--;
         }
         else{
             cout<<"Movimiento bloqueado"<<endl;
@@ -479,17 +570,23 @@ int main()
         //ACCIONES EN CASILLAS
         comprobarTrampa(player_pos_x, player_pos_y);
         comprobarTesoro(player_pos_x, player_pos_y);
+        player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
+        player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
         //
 
-        cout<<player_pos_x<<" "<<player_pos_y<<endl; //linea provisional
+        cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
         cout<<"Vida actual: " << vida <<endl;
         if (vida==0)
         {   
             juego_terminado=true;
+            cout<<"MUERTO";
+        }
+        if (cantMov==0)
+        {
+            juego_terminado=true;
+            cout<<"TE QUEDASTE SIN MOVIMIENTOS";
         }
     }
-
-    cout<<"MUERTO";
 
     return 0;
 }
