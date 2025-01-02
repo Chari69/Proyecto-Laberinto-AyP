@@ -448,84 +448,58 @@ bool comprobarMuro(int posX, int posY) {
                 if(posX == muro1_x && posY == muro1_y) {
                     return true;
                 }
-                else{
-                    return false;
-                }
                 break;
             case 2:
                 if(posX == muro2_x && posY == muro2_y) {
                     return true;
-                }
-                else{
-                    return false;
                 }
                 break;
             case 3:
                 if(posX == muro3_x && posY == muro3_y) {
                     return true;
                 }
-                else{
-                    return false;
-                }
                 break;
             case 4:
                 if(posX == muro4_x && posY == muro4_y) {
                     return true;
-                }
-                else{
-                    return false;
                 }
                 break;
             case 5:
                 if(posX == muro5_x && posY == muro5_y) {
                     return true;
                 }
-                else{
-                    return false;
-                }
                 break;
             case 6:
                 if(posX == muro6_x && posY == muro6_y) {
                     return true;
-                }
-                else{
-                    return false;
                 }
                 break;
             case 7:
                 if(posX == muro7_x && posY == muro7_y) {
                     return true;
                 }
-                else{
-                    return false;
-                }
                 break;
             case 8:
                 if(posX == muro8_x && posY == muro8_y) {
                     return true;
-                }
-                else{
-                    return false;
                 }
                 break;
             case 9:
                 if(posX == muro9_x && posY == muro9_y) {
                     return true;
                 }
-                else{
-                    return false;
-                }
                 break;
             case 10:
                 if(posX == muro10_x && posY == muro10_y) {
                     return true;
                 }
-                else{
-                    return false;
-                }
                 break;
+            default:
+                return false;
+
         }
     }
+    return false;
 }
 
 // ----- MAIN -----
