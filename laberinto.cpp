@@ -4,24 +4,37 @@
 
 using namespace std;
 
+// ----- VARIABLES INICIALES -----
+
 int vidaInicial, vida;      // Viva del jugador. Vida actual del jugador
 int limEjeX, limEjeY;       // Limites de las dimensiones del laberinto
 int cantElem;               // Cantidad de elementos (para ver cuantos cin se deben hacer)
 int cantMov;                // Cantidad de movimientos
 
-// Variables Globales de las coordenadas
-int portal1_x, portal1_y, portal2_x, portal2_y, portal3_x, portal3_y, portal4_x, portal4_y, portal5_x, portal5_y, portal6_x, portal6_y, portal7_x, portal7_y, portal8_x, portal8_y, portal9_x, portal9_y, portal10_x, portal10_y; // Ejes X, Y de los portales.
+// ----- VARIABLES GLOBALES DE LOS OBJETOS -----
 
-int trampa1_x, trampa1_y, trampa2_x, trampa2_y, trampa3_x, trampa3_y, trampa4_x, trampa4_y, trampa5_x, trampa5_y, trampa6_x, trampa6_y, trampa7_x, trampa7_y, trampa8_x, trampa8_y, trampa9_x, trampa9_y, trampa10_x, trampa10_y; // Ejes X, Y de las trampas.
+// Variables de los portales
+int portal1_x, portal1_y, portal2_x, portal2_y, portal3_x, portal3_y, portal4_x, portal4_y, portal5_x, portal5_y, portal6_x, portal6_y, portal7_x, portal7_y, portal8_x, portal8_y, portal9_x, portal9_y, portal10_x, portal10_y; 
 
-int muro1_x, muro1_y, muro2_x, muro2_y, muro3_x, muro3_y, muro4_x, muro4_y, muro5_x, muro5_y, muro6_x, muro6_y, muro7_x, muro7_y, muro8_x, muro8_y, muro9_x, muro9_y, muro10_x, muro10_y; // Ejes X, Y de los muros.
+// Variables de los portales vinculados
+int portalVinculado1_x, portalVinculado1_y, portalVinculado2_x, portalVinculado2_y, portalVinculado3_x, portalVinculado3_y, portalVinculado4_x, portalVinculado4_y, portalVinculado5_x, portalVinculado5_y, portalVinculado6_x, portalVinculado6_y, portalVinculado7_x, portalVinculado7_y, portalVinculado8_x, portalVinculado8_y, portalVinculado9_x, portalVinculado9_y, portalVinculado10_x, portalVinculado10_y;
 
-int tesoro1_x, tesoro1_y, tesoro2_x, tesoro2_y, tesoro3_x, tesoro3_y, tesoro4_x, tesoro4_y, tesoro5_x, tesoro5_y, tesoro6_x, tesoro6_y, tesoro7_x, tesoro7_y, tesoro8_x, tesoro8_y, tesoro9_x, tesoro9_y, tesoro10_x, tesoro10_y; // Ejes X, Y de los tesoros.
+// Variables de las Trampas
+int trampa1_x, trampa1_y, trampa2_x, trampa2_y, trampa3_x, trampa3_y, trampa4_x, trampa4_y, trampa5_x, trampa5_y, trampa6_x, trampa6_y, trampa7_x, trampa7_y, trampa8_x, trampa8_y, trampa9_x, trampa9_y, trampa10_x, trampa10_y; 
 
+// Variables de los muros
+int muro1_x, muro1_y, muro2_x, muro2_y, muro3_x, muro3_y, muro4_x, muro4_y, muro5_x, muro5_y, muro6_x, muro6_y, muro7_x, muro7_y, muro8_x, muro8_y, muro9_x, muro9_y, muro10_x, muro10_y; 
+
+// Variables de los tesoros
+int tesoro1_x, tesoro1_y, tesoro2_x, tesoro2_y, tesoro3_x, tesoro3_y, tesoro4_x, tesoro4_y, tesoro5_x, tesoro5_y, tesoro6_x, tesoro6_y, tesoro7_x, tesoro7_y, tesoro8_x, tesoro8_y, tesoro9_x, tesoro9_y, tesoro10_x, tesoro10_y; 
+
+// Coordenadas de las entradas y salidas del laberinto
 int entrada_x, entrada_y, salida_x, salida_y;
 
+// Variables para llevar la cuenta de cada cosa en el laberinto.
 int cantPortales, cantTrampas, cantMuros, cantTesoros, cantEntradas, cantSalidas;
 
+// Estadisticas del jugador
 int cantTrampas_activadas = 0, cantTesoros_activados = 0;
 
 // Funcion que inicializa el juego, pidiendo todas las entradas correspondientes al usuario.
@@ -149,10 +162,12 @@ void sumarVida(int vidaAnadida) {
     }
 }
 
+// Funcion que resta vida al jugador. 
 void restarVida(int vidaRestada) {
     vida= vida - vidaRestada;
 }
 
+// Funcion para comprobar si en la coordenada del jugador hay una trampa y realizar la accion correspondiente.
 void comprobarTrampa(int posX, int posY) {
     for(int i = 1; i <= cantTrampas; i++) {
         switch (i) {
@@ -240,6 +255,7 @@ void comprobarTrampa(int posX, int posY) {
     }
 }
 
+// Funcion para comprobar si en la coordenada del jugador hay un tesoro y realizar la accion correspondiente.
 void comprobarTesoro(int posX, int posY) {
     for(int i = 1; i <= cantTesoros; i++) {
         switch (i) {
@@ -327,6 +343,7 @@ void comprobarTesoro(int posX, int posY) {
     }
 }
 
+// Funcion para comprobar si en la coordenada del jugador hay un portal y realizar la accion correspondiente.
 int comprobarPortales(int posX, int posY) {
     for(int i = 1; i <= cantPortales; i++) {
         switch (i) {
@@ -414,8 +431,8 @@ int comprobarPortales(int posX, int posY) {
     }
 }
 
-bool comprobarMuro(int posX, int posY)
-{
+// Funcion para comprobar si en la coordenada del jugador hay un muro.
+bool comprobarMuro(int posX, int posY) {
     for(int i = 1; i <= cantMuros; i++) {
         switch (i) 
         {
@@ -576,12 +593,12 @@ int main()
 
         cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
         cout<<"Vida actual: " << vida <<endl;
-        if (vida==0)
+        if (vida <= 0)
         {   
             juego_terminado=true;
             cout<<"MUERTO";
         }
-        if (cantMov==0)
+        if (cantMov == 0)
         {
             juego_terminado=true;
             cout<<"TE QUEDASTE SIN MOVIMIENTOS";
