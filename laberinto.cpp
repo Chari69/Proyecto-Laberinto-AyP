@@ -17,7 +17,7 @@ int cantMov;                // Cantidad de movimientos
 int portal1_x, portal1_y, portal2_x, portal2_y, portal3_x, portal3_y, portal4_x, portal4_y, portal5_x, portal5_y, portal6_x, portal6_y, portal7_x, portal7_y, portal8_x, portal8_y, portal9_x, portal9_y, portal10_x, portal10_y; 
 
 // Variables de los portales vinculados
-int portalVinculado1_x, portalVinculado1_y, portalVinculado2_x, portalVinculado2_y, portalVinculado3_x, portalVinculado3_y, portalVinculado4_x, portalVinculado4_y, portalVinculado5_x, portalVinculado5_y, portalVinculado6_x, portalVinculado6_y, portalVinculado7_x, portalVinculado7_y, portalVinculado8_x, portalVinculado8_y, portalVinculado9_x, portalVinculado9_y, portalVinculado10_x, portalVinculado10_y;
+int portalVinc1_x, portalVinc1_y, portalVinc2_x, portalVinc2_y, portalVinc3_x, portalVinc3_y, portalVinc4_x, portalVinc4_y, portalVinc5_x, portalVinc5_y, portalVinc6_x, portalVinc6_y, portalVinc7_x, portalVinc7_y, portalVinc8_x, portalVinc8_y, portalVinc9_x, portalVinc9_y, portalVinc10_x, portalVinc10_y;
 
 // Variables de las Trampas
 int trampa1_x, trampa1_y, trampa2_x, trampa2_y, trampa3_x, trampa3_y, trampa4_x, trampa4_y, trampa5_x, trampa5_y, trampa6_x, trampa6_y, trampa7_x, trampa7_y, trampa8_x, trampa8_y, trampa9_x, trampa9_y, trampa10_x, trampa10_y; 
@@ -37,6 +37,8 @@ int cantPortales, cantTrampas, cantMuros, cantTesoros, cantEntradas, cantSalidas
 // Estadisticas del jugador
 int cantTrampas_activadas = 0, cantTesoros_activados = 0;
 
+// ----- FUNCIONES -----
+
 // Funcion que inicializa el juego, pidiendo todas las entradas correspondientes al usuario.
 // Asigna las cantidades a las variables globales y se encarga que lo haga de forma correcta.
 void inicializar() {
@@ -51,10 +53,15 @@ void inicializar() {
 
         switch (tipo) {
             case 'P':
+                int pos2X, pos2Y;
+                cin >> pos2X >> pos2Y;
                 if (cantPortales < 10) {
                     cantPortales++;
                     switch (cantPortales) {
-                        case 1: portal1_x = posX; portal1_y = posY; break;
+                        case 1: 
+                            portal1_x = posX; portal1_y = posY;
+                            portalVinc1_x = pos2X; portalVinc1_y = pos2Y;
+                            break;
                         case 2: portal2_x = posX; portal2_y = posY; break;
                         case 3: portal3_x = posX; portal3_y = posY; break;
                         case 4: portal4_x = posX; portal4_y = posY; break;
@@ -66,6 +73,7 @@ void inicializar() {
                         case 10: portal10_x = posX; portal10_y = posY; break;
                     }
                     cout << "Portal en (" << posX << ", " << posY << ")" << endl; // Q
+                    cout << "Vinculado en (" << portalVinc1_x  << ", " << portalVinc1_y << ")" << endl; // Q
                 }
                 break;
             case 'X':
@@ -520,6 +528,8 @@ bool comprobarMuro(int posX, int posY) {
     }
 }
 
+// ----- MAIN -----
+
 int main() 
 {
     inicializar();
@@ -587,8 +597,8 @@ int main()
         //ACCIONES EN CASILLAS
         comprobarTrampa(player_pos_x, player_pos_y);
         comprobarTesoro(player_pos_x, player_pos_y);
-        player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
-        player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
+        //player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
+        //player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
         //
 
         cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
