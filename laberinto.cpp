@@ -53,7 +53,7 @@ void inicializar() {
 
         switch (tipo) {
             case 'P':
-                int pos2X, pos2Y;
+                int pos2X = 0, pos2Y = 0;
                 cin >> pos2X >> pos2Y;
                 if (cantPortales < 10) {
                     cantPortales++;
@@ -62,15 +62,42 @@ void inicializar() {
                             portal1_x = posX; portal1_y = posY;
                             portalVinc1_x = pos2X; portalVinc1_y = pos2Y;
                             break;
-                        case 2: portal2_x = posX; portal2_y = posY; break;
-                        case 3: portal3_x = posX; portal3_y = posY; break;
-                        case 4: portal4_x = posX; portal4_y = posY; break;
-                        case 5: portal5_x = posX; portal5_y = posY; break;
-                        case 6: portal6_x = posX; portal6_y = posY; break;
-                        case 7: portal7_x = posX; portal7_y = posY; break;
-                        case 8: portal8_x = posX; portal8_y = posY; break;
-                        case 9: portal9_x = posX; portal9_y = posY; break;
-                        case 10: portal10_x = posX; portal10_y = posY; break;
+                        case 2: 
+                            portal2_x = posX; portal2_y = posY;
+                            portalVinc2_x = pos2X; portalVinc2_y = pos2Y;
+                            break;
+                        case 3: 
+                            portal3_x = posX; portal3_y = posY;
+                            portalVinc3_x = pos2X; portalVinc3_y = pos2Y;
+                            break;
+                        case 4: 
+                            portal4_x = posX; portal4_y = posY;
+                            portalVinc4_x = pos2X; portalVinc4_y = pos2Y;
+                            break;
+                        case 5: 
+                            portal5_x = posX; portal5_y = posY;
+                            portalVinc5_x = pos2X; portalVinc5_y = pos2Y;
+                            break;
+                        case 6: 
+                            portal6_x = posX; portal6_y = posY;
+                            portalVinc6_x = pos2X; portalVinc6_y = pos2Y;
+                            break;
+                        case 7: 
+                            portal7_x = posX; portal7_y = posY;
+                            portalVinc7_x = pos2X; portalVinc7_y = pos2Y;
+                            break;
+                        case 8: 
+                            portal8_x = posX; portal8_y = posY;
+                            portalVinc8_x = pos2X; portalVinc8_y = pos2Y;
+                            break;
+                        case 9: 
+                            portal9_x = posX; portal9_y = posY;
+                            portalVinc9_x = pos2X; portalVinc9_y = pos2Y;
+                            break;
+                        case 10: 
+                            portal10_x = posX; portal10_y = posY;
+                            portalVinc10_x = pos2X; portalVinc10_y = pos2Y;
+                            break;
                     }
                     cout << "Portal en (" << posX << ", " << posY << ")" << endl; // Q
                     cout << "Vinculado en (" << portalVinc1_x  << ", " << portalVinc1_y << ")" << endl; // Q
@@ -181,80 +208,60 @@ void comprobarTrampa(int posX, int posY) {
         switch (i) {
             case 1: 
                 if(posX == trampa1_x && posY == trampa1_y) {
-                    trampa1_x = 999;
-                    trampa1_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 } 
                 break;
             case 2:
                 if(posX == trampa2_x && posY == trampa2_y) {
-                    trampa2_x = 999;
-                    trampa2_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 3:
                 if(posX == trampa3_x && posY == trampa3_y) {
-                    trampa3_x = 999;
-                    trampa3_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 4:
                 if(posX == trampa4_x && posY == trampa4_y) {
-                    trampa4_x = 999;
-                    trampa4_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 5:
                 if(posX == trampa5_x && posY == trampa5_y) {
-                    trampa5_x = 999;
-                    trampa5_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 6:
                 if(posX == trampa6_x && posY == trampa6_y) {
-                    trampa6_x = 999;
-                    trampa6_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 7:
                 if(posX == trampa7_x && posY == trampa7_y) {
-                    trampa7_x = 999;
-                    trampa7_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 8:
                 if(posX == trampa8_x && posY == trampa8_y) {
-                    trampa8_x = 999;
-                    trampa8_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 9:
                 if(posX == trampa9_x && posY == trampa9_y) {
-                    trampa9_x = 999;
-                    trampa9_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
                 break;
             case 10:
                 if(posX == trampa10_x && posY == trampa10_y) {
-                    trampa10_x = 999;
-                    trampa10_y = 999;
                     restarVida(10);
                     cantTrampas_activadas++;
                 }
@@ -502,6 +509,9 @@ bool comprobarMuro(int posX, int posY) {
     return false;
 }
 
+void verificarRutas(int posX, int posY) {
+
+}
 // ----- MAIN -----
 
 int main() 
