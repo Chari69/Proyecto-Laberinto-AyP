@@ -49,45 +49,58 @@ void inicializar() {
     for (int i = 0; i < cantElem; i++) {
         char tipo;
         int posX, posY;
+        int pos2X = 0, pos2Y = 0;
         cin >> tipo >> posX >> posY;
 
         switch (tipo) {
             case 'P':
+                cin >> pos2X >> pos2Y;
                 if (cantPortales < 10) {
                     cantPortales++;
                     switch (cantPortales) {
                         case 1: 
                             portal1_x = posX; portal1_y = posY;
+                            portalVinc1_x = pos2X; portalVinc1_y = pos2Y;
                             break;
                         case 2: 
                             portal2_x = posX; portal2_y = posY;
+                            portalVinc2_x = pos2X; portalVinc2_y = pos2Y;
                             break;
                         case 3: 
                             portal3_x = posX; portal3_y = posY;
+                            portalVinc3_x = pos2X; portalVinc3_y = pos2Y;
                             break;
                         case 4: 
                             portal4_x = posX; portal4_y = posY;
+                            portalVinc4_x = pos2X; portalVinc4_y = pos2Y;
                             break;
                         case 5: 
                             portal5_x = posX; portal5_y = posY;
+                            portalVinc5_x = pos2X; portalVinc5_y = pos2Y;
                             break;
                         case 6: 
                             portal6_x = posX; portal6_y = posY;
+                            portalVinc6_x = pos2X; portalVinc6_y = pos2Y;
                             break;
                         case 7: 
                             portal7_x = posX; portal7_y = posY;
+                            portalVinc7_x = pos2X; portalVinc7_y = pos2Y;
                             break;
                         case 8: 
                             portal8_x = posX; portal8_y = posY;
+                            portalVinc8_x = pos2X; portalVinc8_y = pos2Y;
                             break;
                         case 9: 
                             portal9_x = posX; portal9_y = posY;
+                            portalVinc9_x = pos2X; portalVinc9_y = pos2Y;
                             break;
                         case 10: 
                             portal10_x = posX; portal10_y = posY;
+                            portalVinc10_x = pos2X; portalVinc10_y = pos2Y;
                             break;
                     }
                     cout << "Portal en (" << posX << ", " << posY << ")" << endl; // Q
+                    cout << "Vinculado en (" << portalVinc1_x  << ", " << portalVinc1_y << ")" << endl; // Q
                 }
                 break;
             case 'X':
@@ -351,7 +364,10 @@ int comprobarPortales(int posX, int posY) {
         switch (i) {
             case 1: 
                 if(posX == portal1_x && posY == portal1_y) {
-                    return portal2_x*10+portal2_y;
+                    return portalVinc1_x*10+portalVinc1_y;
+                }
+                else if(posX == portalVinc1_x && posY == portalVinc1_y){
+                    return portal1_x*10+portal1_y;
                 }
                 break;
             case 2:
