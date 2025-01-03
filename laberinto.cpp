@@ -53,54 +53,41 @@ void inicializar() {
 
         switch (tipo) {
             case 'P':
-                int pos2X = 0, pos2Y = 0;
-                cin >> pos2X >> pos2Y;
                 if (cantPortales < 10) {
                     cantPortales++;
                     switch (cantPortales) {
                         case 1: 
                             portal1_x = posX; portal1_y = posY;
-                            portalVinc1_x = pos2X; portalVinc1_y = pos2Y;
                             break;
                         case 2: 
                             portal2_x = posX; portal2_y = posY;
-                            portalVinc2_x = pos2X; portalVinc2_y = pos2Y;
                             break;
                         case 3: 
                             portal3_x = posX; portal3_y = posY;
-                            portalVinc3_x = pos2X; portalVinc3_y = pos2Y;
                             break;
                         case 4: 
                             portal4_x = posX; portal4_y = posY;
-                            portalVinc4_x = pos2X; portalVinc4_y = pos2Y;
                             break;
                         case 5: 
                             portal5_x = posX; portal5_y = posY;
-                            portalVinc5_x = pos2X; portalVinc5_y = pos2Y;
                             break;
                         case 6: 
                             portal6_x = posX; portal6_y = posY;
-                            portalVinc6_x = pos2X; portalVinc6_y = pos2Y;
                             break;
                         case 7: 
                             portal7_x = posX; portal7_y = posY;
-                            portalVinc7_x = pos2X; portalVinc7_y = pos2Y;
                             break;
                         case 8: 
                             portal8_x = posX; portal8_y = posY;
-                            portalVinc8_x = pos2X; portalVinc8_y = pos2Y;
                             break;
                         case 9: 
                             portal9_x = posX; portal9_y = posY;
-                            portalVinc9_x = pos2X; portalVinc9_y = pos2Y;
                             break;
                         case 10: 
                             portal10_x = posX; portal10_y = posY;
-                            portalVinc10_x = pos2X; portalVinc10_y = pos2Y;
                             break;
                     }
                     cout << "Portal en (" << posX << ", " << posY << ")" << endl; // Q
-                    cout << "Vinculado en (" << portalVinc1_x  << ", " << portalVinc1_y << ")" << endl; // Q
                 }
                 break;
             case 'X':
@@ -366,84 +353,55 @@ int comprobarPortales(int posX, int posY) {
                 if(posX == portal1_x && posY == portal1_y) {
                     return portal2_x*10+portal2_y;
                 }
-                else{
-                    return posX*10+posY;
-                }
                 break;
             case 2:
                 if(posX == portal2_x && posY == portal2_y) {
                     return portal1_x*10+portal1_y;
-                }
-                else{
-                    return posX*10+posY;
                 }
                 break;
             case 3:
                 if(posX == portal3_x && posY == portal3_y) {
                     return portal4_x*10+portal4_y;
                 }
-                else{
-                    return posX*10+posY;
-                }
                 break;
             case 4:
                 if(posX == portal4_x && posY == portal4_y) {
                     return portal3_x*10+portal3_y;
-                }
-                else{
-                    return posX*10+posY;
                 }
                 break;
             case 5:
                 if(posX == portal5_x && posY == portal5_y) {
                     return portal6_x*10+portal6_y;
                 }
-                else{
-                    return posX*10+posY;
-                }
                 break;
             case 6:
                 if(posX == portal6_x && posY == portal6_y) {
                     return portal5_x*10+portal5_y;
-                }
-                else{
-                    return posX*10+posY;
                 }
                 break;
             case 7:
                 if(posX == portal7_x && posY == portal7_y) {
                     return portal8_x*10+portal8_y;
                 }
-                else{
-                    return posX*10+posY;
-                }
                 break;
             case 8:
                 if(posX == portal8_x && posY == portal8_y) {
                     return portal7_x*10+portal7_y;
-                }
-                else{
-                    return posX*10+posY;
                 }
                 break;
             case 9:
                 if(posX == portal9_x && posY == portal9_y) {
                     return portal10_x*10+portal10_y;
                 }
-                else{
-                    return posX*10+posY;
-                }
                 break;
             case 10:
                 if(posX == portal10_x && posY == portal10_y) {
                     return portal9_x*10+portal9_y;
                 }
-                else{
-                    return posX*10+posY;
-                }
                 break;
         }
     }
+    return posX*10+posY;
 }
 
 // Funcion para comprobar si en la coordenada del jugador hay un muro.
@@ -581,8 +539,8 @@ int main()
         //ACCIONES EN CASILLAS
         comprobarTrampa(player_pos_x, player_pos_y);
         comprobarTesoro(player_pos_x, player_pos_y);
-        //player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
-        //player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
+        player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
+        player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
         //
 
         cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
@@ -601,3 +559,4 @@ int main()
 
     return 0;
 }
+
