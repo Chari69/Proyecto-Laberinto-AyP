@@ -31,6 +31,9 @@ int tesoro1_x, tesoro1_y, tesoro2_x, tesoro2_y, tesoro3_x, tesoro3_y, tesoro4_x,
 // Coordenadas de las entradas y salidas del laberinto
 int entrada_x, entrada_y, salida_x, salida_y;
 
+// Posicion Actual del jugador
+int player_pos_x, player_pos_y;
+
 // Variables para llevar la cuenta de cada cosa en el laberinto.
 int cantPortales, cantTrampas, cantMuros, cantTesoros, cantEntradas, cantSalidas;
 
@@ -483,17 +486,66 @@ bool comprobarMuro(int posX, int posY) {
     return false;
 }
 
-void verificarRutas(int posX, int posY) {
+void verificarRutas() {
+    int x_deseada, y_deseada;
 
+    if(player_pos_y<limEjeY) {
+        y_deseada= player_pos_y+1;
+        if(comprobarMuro(player_pos_x, y_deseada)){
+            cout<<"No te pudes mover en el eje y"<<endl;
+        }
+        if(y_deseada > limEjeY) {
+            cout<<"No te pudes mover en el eje y"<<endl;
+        }
+        cout<<"#COORDDESEADA# " << y_deseada << endl;
+
+    } else if(player_pos_y>0) {
+        y_deseada= player_pos_y-1;
+        if(comprobarMuro(player_pos_x, y_deseada)){
+            cout<<"No te pudes mover en el eje y"<<endl;
+        }
+        if(y_deseada < 0) {
+            cout<<"No te pudes mover en el eje y"<<endl;
+        }
+        cout<<"#COORDDESEADA# " << y_deseada << endl;
+
+    } else if(player_pos_x<limEjeX) {
+        x_deseada= player_pos_x+1;
+        if(comprobarMuro(x_deseada, player_pos_y)){
+            cout<<"No te pudes mover en el eje x"<<endl;
+        }
+        if(x_deseada > limEjeX) {
+            cout<<"No te pudes mover en el eje x"<<endl;
+        }
+        cout<<"#COORDDESEADA# " << x_deseada << endl;
+
+    } else if(player_pos_x>0) {
+        x_deseada= player_pos_x+1;
+        if(comprobarMuro(x_deseada, player_pos_y)){
+            cout<<"No te pudes mover en el eje x"<<endl;
+        }
+        if(x_deseada < 0) {
+            cout<<"No te pudes mover en el eje x"<<endl;
+        }
+        cout<<"#COORDDESEADA# " << x_deseada << endl;
+
+    } else {
+        cout<<"Movimiento bloqueado"<<endl;
+    }
+}
+
+void asignarPosInicial() {
+    player_pos_x = entrada_x;
+    player_pos_y = entrada_y;
 }
 // ----- MAIN -----
 
 int main() 
 {
     inicializar();
-    int player_pos_x = entrada_x, player_pos_y = entrada_y;
+    asignarPosInicial();
+    //int player_pos_x = entrada_x, player_pos_y = entrada_y;
     int x_deseada, y_deseada;
-    
     char direction;
     bool juego_terminado = false;
 
@@ -555,8 +607,9 @@ int main()
         //ACCIONES EN CASILLAS
         comprobarTrampa(player_pos_x, player_pos_y);
         comprobarTesoro(player_pos_x, player_pos_y);
-        player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
-        player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
+        //verificarRutas();
+        //player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
+        //player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
         //
 
         cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
