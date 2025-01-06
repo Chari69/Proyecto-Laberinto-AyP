@@ -31,6 +31,9 @@ int tesoro1_x, tesoro1_y, tesoro2_x, tesoro2_y, tesoro3_x, tesoro3_y, tesoro4_x,
 // Coordenadas de las entradas y salidas del laberinto
 int entrada_x, entrada_y, salida_x, salida_y;
 
+// Posicion Actual del jugador
+int player_pos_x, player_pos_y;
+
 // Variables para llevar la cuenta de cada cosa en el laberinto.
 int cantPortales, cantTrampas, cantMuros, cantTesoros, cantEntradas, cantSalidas;
 
@@ -359,65 +362,111 @@ void comprobarTesoro(int posX, int posY) {
 }
 
 // Funcion para comprobar si en la coordenada del jugador hay un portal y realizar la accion correspondiente.
-int comprobarPortales(int posX, int posY) {
+void comprobarPortales(int posX, int posY) {
     for(int i = 1; i <= cantPortales; i++) {
         switch (i) {
             case 1: 
                 if(posX == portal1_x && posY == portal1_y) {
-                    return portalVinc1_x*10+portalVinc1_y;
+                    player_pos_x = portalVinc1_x;
+                    player_pos_y = portalVinc1_y;
                 }
                 else if(posX == portalVinc1_x && posY == portalVinc1_y){
-                    return portal1_x*10+portal1_y;
+                    player_pos_x = portal1_x;
+                    player_pos_y = portal1_y;
                 }
                 break;
-            case 2:
+            case 2: 
                 if(posX == portal2_x && posY == portal2_y) {
-                    return portal1_x*10+portal1_y;
+                    player_pos_x = portalVinc2_x;
+                    player_pos_y = portalVinc2_y;
+                }
+                else if(posX == portalVinc2_x && posY == portalVinc2_y){
+                    player_pos_x = portal2_x;
+                    player_pos_y = portal2_y;
                 }
                 break;
-            case 3:
+            case 3: 
                 if(posX == portal3_x && posY == portal3_y) {
-                    return portal4_x*10+portal4_y;
+                    player_pos_x = portalVinc3_x;
+                    player_pos_y = portalVinc3_y;
+                }
+                else if(posX == portalVinc3_x && posY == portalVinc3_y){
+                    player_pos_x = portal3_x;
+                    player_pos_y = portal3_y;
                 }
                 break;
-            case 4:
+            case 4: 
                 if(posX == portal4_x && posY == portal4_y) {
-                    return portal3_x*10+portal3_y;
+                    player_pos_x = portalVinc4_x;
+                    player_pos_y = portalVinc4_y;
+                }
+                else if(posX == portalVinc4_x && posY == portalVinc4_y){
+                    player_pos_x = portal4_x;
+                    player_pos_y = portal4_y;
                 }
                 break;
-            case 5:
+            case 5: 
                 if(posX == portal5_x && posY == portal5_y) {
-                    return portal6_x*10+portal6_y;
+                    player_pos_x = portalVinc5_x;
+                    player_pos_y = portalVinc5_y;
+                }
+                else if(posX == portalVinc5_x && posY == portalVinc5_y){
+                    player_pos_x = portal5_x;
+                    player_pos_y = portal5_y;
                 }
                 break;
-            case 6:
+            case 6: 
                 if(posX == portal6_x && posY == portal6_y) {
-                    return portal5_x*10+portal5_y;
+                    player_pos_x = portalVinc6_x;
+                    player_pos_y = portalVinc6_y;
+                }
+                else if(posX == portalVinc6_x && posY == portalVinc6_y){
+                    player_pos_x = portal6_x;
+                    player_pos_y = portal6_y;
                 }
                 break;
-            case 7:
+            case 7: 
                 if(posX == portal7_x && posY == portal7_y) {
-                    return portal8_x*10+portal8_y;
+                    player_pos_x = portalVinc7_x;
+                    player_pos_y = portalVinc7_y;
+                }
+                else if(posX == portalVinc7_x && posY == portalVinc7_y){
+                    player_pos_x = portal7_x;
+                    player_pos_y = portal7_y;
                 }
                 break;
-            case 8:
+            case 8: 
                 if(posX == portal8_x && posY == portal8_y) {
-                    return portal7_x*10+portal7_y;
+                    player_pos_x = portalVinc8_x;
+                    player_pos_y = portalVinc8_y;
+                }
+                else if(posX == portalVinc8_x && posY == portalVinc8_y){
+                    player_pos_x = portal8_x;
+                    player_pos_y = portal8_y;
                 }
                 break;
-            case 9:
+            case 9: 
                 if(posX == portal9_x && posY == portal9_y) {
-                    return portal10_x*10+portal10_y;
+                    player_pos_x = portalVinc9_x;
+                    player_pos_y = portalVinc9_y;
+                }
+                else if(posX == portalVinc9_x && posY == portalVinc9_y){
+                    player_pos_x = portal9_x;
+                    player_pos_y = portal9_y;
                 }
                 break;
-            case 10:
+            case 10: 
                 if(posX == portal10_x && posY == portal10_y) {
-                    return portal9_x*10+portal9_y;
+                    player_pos_x = portalVinc10_x;
+                    player_pos_y = portalVinc10_y;
+                }
+                else if(posX == portalVinc10_x && posY == portalVinc10_y){
+                    player_pos_x = portal10_x;
+                    player_pos_y = portal10_y;
                 }
                 break;
         }
     }
-    return posX*10+posY;
 }
 
 // Funcion para comprobar si en la coordenada del jugador hay un muro.
@@ -482,14 +531,20 @@ bool comprobarMuro(int posX, int posY) {
     }
     return false;
 }
+
+void asignarPosInicial() {
+    player_pos_x = entrada_x;
+    player_pos_y = entrada_y;
+}
+
 // ----- MAIN -----
 
 int main() 
 {
     inicializar();
-    int player_pos_x = entrada_x, player_pos_y = entrada_y;
+    asignarPosInicial();
+
     int x_deseada, y_deseada;
-    
     char direction;
     bool juego_terminado = false;
 
@@ -551,9 +606,7 @@ int main()
         //ACCIONES EN CASILLAS
         comprobarTrampa(player_pos_x, player_pos_y);
         comprobarTesoro(player_pos_x, player_pos_y);
-        player_pos_x = comprobarPortales(player_pos_x,player_pos_y)/10;//comprobacion de portal
-        player_pos_y = comprobarPortales(player_pos_x,player_pos_y)%10;//comprobacion de portal
-        //
+        comprobarPortales(player_pos_x, player_pos_y);
 
         cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
         cout<<"Vida actual: " << vida <<endl;
@@ -590,5 +643,3 @@ int main()
 
     return 0;
 }
-
-
