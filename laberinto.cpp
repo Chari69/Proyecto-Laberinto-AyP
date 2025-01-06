@@ -60,6 +60,7 @@ void inicializar() {
                 cin >> pos2X >> pos2Y;
                 if (cantPortales < 10) {
                     cantPortales++;
+                    i++;
                     switch (cantPortales) {
                         case 1: 
                             portal1_x = posX; portal1_y = posY;
@@ -102,8 +103,8 @@ void inicializar() {
                             portalVinc10_x = pos2X; portalVinc10_y = pos2Y;
                             break;
                     }
-                    cout << "Portal en (" << posX << ", " << posY << ")" << endl; // Q
-                    cout << "Vinculado en (" << portalVinc1_x  << ", " << portalVinc1_y << ")" << endl; // Q
+                    //cout << "Portal en (" << posX << ", " << posY << ")" << endl; // Q
+                    //cout << "Vinculado en (" << portalVinc1_x  << ", " << portalVinc1_y << ")" << endl; // Q
                 }
                 break;
             case 'X':
@@ -121,7 +122,7 @@ void inicializar() {
                         case 9: trampa9_x = posX; trampa9_y = posY; break;
                         case 10: trampa10_x = posX; trampa10_y = posY; break;
                     }
-                    cout << "Trampa en (" << posX << ", " << posY << ")" << endl; // Q
+                    //cout << "Trampa en (" << posX << ", " << posY << ")" << endl; // Q
                 } 
                 break;
             case '#':
@@ -139,7 +140,7 @@ void inicializar() {
                         case 9: muro9_x = posX; muro9_y = posY; break;
                         case 10: muro10_x = posX; muro10_y = posY; break;
                     }
-                    cout << "Muro en (" << posX << ", " << posY << ")" << endl; // Q
+                    //cout << "Muro en (" << posX << ", " << posY << ")" << endl; // Q
                 } 
                 break;
             case 'T':
@@ -157,36 +158,36 @@ void inicializar() {
                         case 9: tesoro9_x = posX; tesoro9_y = posY; break;
                         case 10: tesoro10_x = posX; tesoro10_y = posY; break;
                     }
-                    cout << "Tesoro en (" << posX << ", " << posY << ")" << endl; // Q
+                    //cout << "Tesoro en (" << posX << ", " << posY << ")" << endl; // Q
                 } 
                 break;
             case 'E':
                 if (cantEntradas < 1) {
                     cantEntradas++;
                     entrada_x = posX; entrada_y = posY;
-                    cout << "Entrada en (" << posX << ", " << posY << ")" << endl; // Q
+                    //cout << "Entrada en (" << posX << ", " << posY << ")" << endl; // Q
                 } else {
-                    cout << "Solo puede haber una entrada" << endl; // Q
+                    //cout << "Solo puede haber una entrada" << endl; // Q
                 }
                 break;
             case 'S':
                 if (cantSalidas < 1) {
                     cantSalidas++;
                     salida_x = posX; salida_y = posY;
-                    cout << "Salida en (" << posX << ", " << posY << ")" << endl; // Q
+                    //cout << "Salida en (" << posX << ", " << posY << ")" << endl; // Q
                 } else {
-                    cout << "Solo puede haber una salida" << endl; // Q
+                    //cout << "Solo puede haber una salida" << endl; // Q
                 }
                 break;
             default:
-                cout << "Tipo de elemento desconocido: " << tipo << endl; // Q
+                //cout << "Tipo de elemento desconocido: " << tipo << endl; // Q
                 break;
         }
         
     }
 
     cin >> cantMov;
-    cout << "Movimientos a Ingresar: " << cantMov << endl; // Q
+    //cout << "Movimientos a Ingresar: " << cantMov << endl; // Q
 }
 
 // Funcion que suma vida al jugador, sin pasar de la vida inicial.
@@ -550,7 +551,7 @@ int main()
 
     while(!juego_terminado)
     {
-        cout << "Ingresa un movimiento: "; // Q
+        //cout << "Ingresa un movimiento: "; // Q
         cin >> direction;
 
         // MOVIMIENTO
@@ -562,7 +563,7 @@ int main()
                 player_pos_y++;
             }
             else{
-                cout<<"Movimiento bloqueado"<<endl;
+                //cout<<"Movimiento bloqueado"<<endl;
             }
             cantMov--;
         }
@@ -573,7 +574,7 @@ int main()
                 player_pos_y--;
             }
             else{
-                cout<<"Movimiento bloqueado"<<endl;
+                //cout<<"Movimiento bloqueado"<<endl;
             }
             cantMov--;
         }
@@ -584,7 +585,7 @@ int main()
                 player_pos_x++;
             }
             else{
-                cout<<"Movimiento bloqueado"<<endl;
+                //cout<<"Movimiento bloqueado"<<endl;
             }
             cantMov--;
         }
@@ -595,12 +596,12 @@ int main()
                 player_pos_x--;
             }
             else{
-                cout<<"Movimiento bloqueado"<<endl;
+                //cout<<"Movimiento bloqueado"<<endl;
             }
             cantMov--;
         }
         else{
-            cout<<"Movimiento bloqueado"<<endl;
+            //cout<<"Movimiento bloqueado"<<endl;
         }
         
         //ACCIONES EN CASILLAS
@@ -608,24 +609,8 @@ int main()
         comprobarTesoro(player_pos_x, player_pos_y);
         comprobarPortales(player_pos_x, player_pos_y);
 
-        cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
-        cout<<"Vida actual: " << vida <<endl;
-        if (vida <= 0)
-        {   
-            juego_terminado=true;
-            cout<<"TESOROS:"<<cantTesoros_activados<<endl;
-            cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
-            cout<<"VIDA:"<<vida<<endl;
-            cout<<"MUERTO";
-        }
-        if (cantMov == 0)
-        {
-            juego_terminado=true;
-            cout<<"TESOROS:"<<cantTesoros_activados<<endl;
-            cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
-            cout<<"VIDA:"<<vida<<endl;
-            cout<<"ATRAPADO";
-        }
+        //cout<<player_pos_x<<" "<<player_pos_y<<endl; //Q
+        //cout<<"Vida actual: " << vida <<endl; // Q
         if(player_pos_x == salida_x && player_pos_y == salida_y)
         {
             juego_terminado=true;
@@ -638,6 +623,25 @@ int main()
             else{
                 cout<<"LOGRADO";
             }
+            return 0;
+        }
+        if (vida <= 0)
+        {   
+            juego_terminado=true;
+            cout<<"TESOROS:"<<cantTesoros_activados<<endl;
+            cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
+            cout<<"VIDA:"<<vida<<endl;
+            cout<<"MUERTO";
+            return 0;
+        }
+        if (cantMov == 0)
+        {
+            juego_terminado=true;
+            cout<<"TESOROS:"<<cantTesoros_activados<<endl;
+            cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
+            cout<<"VIDA:"<<vida<<endl;
+            cout<<"ATRAPADO";
+            return 0;
         }
     }
 
