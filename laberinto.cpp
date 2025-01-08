@@ -632,10 +632,10 @@ int main()
             cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
             cout<<"VIDA:"<<vida<<endl;
             if(cantTesoros_activados == cantTesoros){
-                cout<<"SORPRENDENTE";
+                cout<<"SORPRENDENTE"<<endl;
             }
             else{
-                cout<<"LOGRADO";
+                cout<<"LOGRADO"<<endl;
             }
             return 0;
         }
@@ -646,7 +646,7 @@ int main()
             cout<<"TESOROS:"<<cantTesoros_activados<<endl;
             cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
             cout<<"VIDA:"<<vida<<endl;
-            cout<<"MUERTO";
+            cout<<"MUERTO"<<endl;
             return 0;
         }
         if (cantMov == 0)
@@ -656,7 +656,7 @@ int main()
             cout<<"TESOROS:"<<cantTesoros_activados<<endl;
             cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
             cout<<"VIDA:"<<vida<<endl;
-            cout<<"ATRAPADO";
+            cout<<"ATRAPADO"<<endl;
             return 0;
         }
     }
