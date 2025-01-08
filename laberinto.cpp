@@ -38,7 +38,7 @@ int player_pos_x, player_pos_y;
 int cantPortales, cantTrampas, cantMuros, cantTesoros, cantEntradas, cantSalidas;
 
 // Estadisticas del jugador
-int cantTrampas_activadas = 0, cantTesoros_activados = 0;
+int cantTrampas_activadas = 0, cantTesoros_activados = 0, cantMovBloqueados = 0;
 
 // ----- FUNCIONES -----
 
@@ -533,6 +533,14 @@ bool comprobarMuro(int posX, int posY) {
     return false;
 }
 
+void comprobarMovBloqueados() {
+    if(cantMovBloqueados >=  1) {
+        for(int i = 0; i < cantMovBloqueados; i++) {
+            cout << "Movimiento bloqueado." << endl;
+        }
+    }
+}
+
 void asignarPosInicial() {
     player_pos_x = entrada_x;
     player_pos_y = entrada_y;
@@ -564,6 +572,7 @@ int main()
             }
             else{
                 //cout<<"Movimiento bloqueado"<<endl;
+                cantMovBloqueados++;
             }
             cantMov--;
         }
@@ -575,6 +584,7 @@ int main()
             }
             else{
                 //cout<<"Movimiento bloqueado"<<endl;
+                cantMovBloqueados++;
             }
             cantMov--;
         }
@@ -586,6 +596,7 @@ int main()
             }
             else{
                 //cout<<"Movimiento bloqueado"<<endl;
+                cantMovBloqueados++;
             }
             cantMov--;
         }
@@ -597,11 +608,13 @@ int main()
             }
             else{
                 //cout<<"Movimiento bloqueado"<<endl;
+                cantMovBloqueados++;
             }
             cantMov--;
         }
         else{
             //cout<<"Movimiento bloqueado"<<endl;
+            cantMovBloqueados++;
         }
         
         //ACCIONES EN CASILLAS
@@ -614,6 +627,7 @@ int main()
         if(player_pos_x == salida_x && player_pos_y == salida_y)
         {
             juego_terminado=true;
+            comprobarMovBloqueados();
             cout<<"TESOROS:"<<cantTesoros_activados<<endl;
             cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
             cout<<"VIDA:"<<vida<<endl;
@@ -628,6 +642,7 @@ int main()
         if (vida <= 0)
         {   
             juego_terminado=true;
+            comprobarMovBloqueados();
             cout<<"TESOROS:"<<cantTesoros_activados<<endl;
             cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
             cout<<"VIDA:"<<vida<<endl;
@@ -637,6 +652,7 @@ int main()
         if (cantMov == 0)
         {
             juego_terminado=true;
+            comprobarMovBloqueados();
             cout<<"TESOROS:"<<cantTesoros_activados<<endl;
             cout<<"TRAMPAS:"<<cantTrampas_activadas<<endl;
             cout<<"VIDA:"<<vida<<endl;
