@@ -9,10 +9,11 @@ Elaborado por:
 
 ## Documento del Informe
 
-➡➡ [Ver en Google Docs](https://docs.google.com/document/d/1_W_CF6gkGRYP2oFR2kP8YIAwQaK8Q2h70E9JvKHgC1M/edit?usp=sharing) ⬅⬅
+➡➡ [Ver en Google Docs](https://docs.google.com/document/d/1UQK6Ua9Avt3HkNuhlVIjATMKvYvwlWYo/edit) ⬅⬅
 
 ## Por hacer
 
 - [ ] Revisar varios casos de prueba
 - [ ] Pulir los ultimos detalles antes de entregar
+- [x] Mensaje de movimientos bloqueados al final.
 - [ ] Hacer el informe.
