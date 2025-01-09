@@ -29,7 +29,7 @@ int muro1_x, muro1_y, muro2_x, muro2_y, muro3_x, muro3_y, muro4_x, muro4_y, muro
 int tesoro1_x, tesoro1_y, tesoro2_x, tesoro2_y, tesoro3_x, tesoro3_y, tesoro4_x, tesoro4_y, tesoro5_x, tesoro5_y, tesoro6_x, tesoro6_y, tesoro7_x, tesoro7_y, tesoro8_x, tesoro8_y, tesoro9_x, tesoro9_y, tesoro10_x, tesoro10_y; 
 
 // Coordenadas de las entradas y salidas del laberinto
-int entrada_x, entrada_y, salida_x, salida_y;
+int entrada_x, entrada_y, salida_x = -1, salida_y = -1;
 
 // Posicion Actual del jugador
 int player_pos_x, player_pos_y;
@@ -615,6 +615,7 @@ int main()
         else{
             //cout<<"Movimiento bloqueado"<<endl;
             cantMovBloqueados++;
+            cantMov--;
         }
         
         //ACCIONES EN CASILLAS
